@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:34:53 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/11 16:59:15 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/11 18:46:52 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ typedef struct			s_arg_def
 	void				*arg;	//argument en question
 	//flags #0-+ et ' '
 	//taille minimum
-	//precision
 	//flags hh h l ll j z
+	int					precision; //precision
+	t_bool				space; //espace
 	struct s_arg_def	*next;
 }						t_arg_def;
 
