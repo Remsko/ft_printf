@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/11 13:20:09 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/11 16:59:16 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@
 # include "libft.h"
 # include "types.h"
 # include "stdarg.h"
+# include "stdlib.h"
+
+# include	"stdio.h"
 
 typedef struct	s_env
 {
-	t_arg_def	*lst_args_def;
+	t_arg_def	*def;
 	va_list		arg;
 	int			ret;
 }				t_env;
+
+int		ft_printf(const char *format, ...);
 
 #endif
