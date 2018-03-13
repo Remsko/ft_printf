@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 17:44:25 by rpinoit           #+#    #+#              #
-#    Updated: 2018/03/13 15:17:50 by rpinoit          ###   ########.fr        #
+#    Updated: 2018/03/13 16:15:20 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -175,7 +175,7 @@ CPPFLAGS = -I.
 all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
-	ar -rc $(NAME) $(OBJ_NAME) $(O_DIR) $(LDLIBS)
+	ar -rc $(NAME) $(OBJ_NAME) $(LDLIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
