@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   get_specifier_to_print.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/11 11:38:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/13 14:36:12 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/03/13 14:33:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/ft_printf.h"
+#include "../../incs/ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+t_bool	get_specifier(t_env *e, const char *f)
 {
-	t_env	e;
-
-	va_start(e.arg, format);
-	while (format[e.index] != '\0')
-	{
-		if (format[e.index] == '%')
-		{
-			if (parse_arg(&e, format) == FALSE)
-				return (-1);
-		}
-		else
-		{
-			ft_putchar(format[e.index++]);
-			++e.ret;
-		}
-	}
-	va_end(e.arg);
-	return (e.ret);
+	if (f[e->ret] == 'd')
+		return (print_signed_integer(e, f));
+	return (FALSE);
 }

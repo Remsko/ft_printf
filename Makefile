@@ -1,15 +1,31 @@
 NAME = libftprintf.a
 CC = gcc
 RM = rm -f
-CFLAGS = -c -Wall -Werror -Wextra
-FILES = srcs/ft_printf.c
-O_DIR = ft_printf.o
+CFLAGS = -Wall -Werror -Wextra
+SRC_NAME = srcs/ft_printf.c \
+		srcs/parser/parse_arg.c \
+		srcs/parser/get_specifier.c \
+		srcs/printer/print_signed_integer.c \
+
+OBJ_NAME = ft_printf.o \
+		parse_arg.o \
+		get_specifier.o \
+		print_signed_integer.o \
+
+LDLIBS = ./libft/libft.a
+
+CPPFLAGS = -Iincs/ \
+		   -Ilibft/ \
+
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJ_NAME)
 		make -C libft
-		$(CC) $(CFLAGS) $(FILES)
-		ar rc $(NAME) $(O_DIR)
+		ar -rc $(NAME) $(OBJ_NAME) $(O_DIR) $(LDLIBS)
+		ranlib $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
 		make -C libft clean
@@ -20,3 +36,4 @@ fclean: clean
 	    $(RM) $(NAME)
 
 re: fclean all
+	make -C libft re

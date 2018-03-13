@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/11 16:56:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/13 14:35:16 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "incs/ft_printf.h"
 
 int		main(void)
 {
-	ft_printf("nique", "delicieux", "poulet", "banane", "noixdcoco", "rt");
+	ft_printf("nique");
 	return (0);
 }
