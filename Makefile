@@ -14,18 +14,17 @@ OBJ_NAME = ft_printf.o \
 
 LDLIBS = ./libft/libft.a
 
-CPPFLAGS = -Iincs/ \
-		   -Ilibft/ \
+CPPFLAGS = -I./incs/ \
+		   -I./libft/ \
 
 all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
 		make -C libft
 		ar -rc $(NAME) $(OBJ_NAME) $(O_DIR) $(LDLIBS)
-		ranlib $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	    $(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
 		make -C libft clean
