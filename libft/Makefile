@@ -6,15 +6,15 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 17:44:25 by rpinoit           #+#    #+#              #
-#    Updated: 2018/03/08 17:58:17 by rpinoit          ###   ########.fr        #
+#    Updated: 2018/03/13 15:17:50 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
 RM = rm -f
-CFLAGS = -c -Wall -Werror -Wextra
-FILES = ft_lstdel.c \
+CFLAGS = -Wall -Werror -Wextra
+SRC_NAME = ft_lstdel.c \
 		ft_memmove.c \
 		ft_strchr.c \
 		ft_strlen.c \
@@ -91,7 +91,7 @@ FILES = ft_lstdel.c \
 		ft_lstrev.c \
 		ft_strdigit.c
 
-O_DIR = ft_lstdel.o \
+OBJ_NAME = ft_lstdel.o \
 		ft_memmove.o \
 		ft_strchr.o \
 		ft_strlen.o \
@@ -168,14 +168,20 @@ O_DIR = ft_lstdel.o \
 		ft_lstrev.o \
 		ft_strdigit.o
 
+LDLIBS =
+
+CPPFLAGS = -I.
+
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(FILES)
-	ar rc libft.a $(O_DIR)
+$(NAME): $(OBJ_NAME)
+	ar -rc $(NAME) $(OBJ_NAME) $(O_DIR) $(LDLIBS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	$(RM) $(O_DIR)
+	$(RM) $(OBJ_NAME)
 
 fclean: clean
 	$(RM) $(NAME)

@@ -29,7 +29,7 @@ $(NAME): $(OBJ_NAME)
 
 clean:
 		make -C libft clean
-	    $(RM) $(O_DIR)
+	    $(RM) $(OBJ_NAME)
 
 fclean: clean
 		make -C libft fclean
