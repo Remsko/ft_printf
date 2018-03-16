@@ -6,11 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:56:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 17:56:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 18:28:13 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/ft_printf.h"
+#include "../../incs/ft_printf.h"
 
 t_bool	get_flags(t_env *e)
 {

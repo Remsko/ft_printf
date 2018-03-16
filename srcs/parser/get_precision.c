@@ -6,11 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:58:29 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 18:08:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 18:28:44 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/ft_printf.h"
+#include "../../incs/ft_printf.h"
 
 static inline int	ft_max(int x, int y)
 {
