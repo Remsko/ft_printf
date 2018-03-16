@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_arg.c                                        :+:      :+:    :+:   */
+/*   get_length.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/13 11:15:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 17:56:06 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/03/16 15:59:11 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/03/16 17:49:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ft_printf.h"
 
-t_bool		parse_arg(t_env *e)
+t_bool	get_length(t_env *e)
 {
-	get_flags(e);
-	get_width(e);
-	get_precision(e);
-	get_length(e);
-	get_specifier(e);
+	while (1)
+	{
+		if (*e->format == 'h')
+			e->length = *e->format + 1 == 'h' ? hh : h;
+		else if (*e->format == 'l')
+			e->length = *e->format + 1 == 'l' ? ll : l;
+		else if (*e->format == 'j')
+			e->length = j;
+		else if (*e->format == 'z')
+			e->length = z;
+		else
+			break ;
+		++e->format; // can be remove ?
+	}
 	return (TRUE);
 }

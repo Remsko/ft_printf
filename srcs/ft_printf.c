@@ -6,58 +6,51 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:38:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/13 20:50:48 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 18:21:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ft_printf.h"
 
-/*
-** algo + rapide ? = chercher le % (en comptant)
-** afficher jusqu'au % avec un write du comptant
-** afficher le contenu du % puis recommencer
-*/
-
-t_bool	pourcent_pair(const char *f, int *i)
+static inline t_bool	pourcent_pair(char **f)
 {
-	int tmp;
+	char *tmp;
 
-	tmp = *i;
-	while (f[tmp] == ' ')
-			++tmp;
-	if (f[tmp] == '%')
+	tmp = *f;
+	while (*tmp == ' ')
+		++tmp;
+	if (*tmp == '%')
 	{
-		*i = tmp;
+		*f = tmp;
 		return (TRUE);
 	}
-	else
-		return (FALSE);
+	return (FALSE);
 }
 
-int		ft_printf(const char *format, ...)
+int						ft_printf(const char *format, ...)
 {
 	t_env	e;
 
-	e = (t_env){ .index = 0, .ret = 0, .parser_ret = TRUE};
+	ft_bzero(&e, sizeof(e));
+	e.fd = 1;
+	e.format = (char *)format;
 	va_start(e.arg, format);
-	while (format[e.index] != '\0')
+	while (*e.format != '\0')
 	{
-		if (format[e.index] == '%' && (++e.index))
+		if (*e.format == '%' && ++e.format)
 		{
-			if (format[e.index] == '\0')
+			if (*e.format == '\0')
 				break ;
-			if (pourcent_pair(format, &e.index) && (++e.ret) && (++e.index))
-				ft_putchar('%');
-			else if (parse_arg(&e, format) == FALSE)
+			else if (pourcent_pair(&e.format) == TRUE)
+				fill_buff(&e, e.format, 1);
+			else if (parse_arg(&e) == FALSE)
 				return (-1);
 		}
 		else
-		{
-			ft_putchar(format[e.index++]);
-			++e.ret;
-		}
+			fill_buff(&e, e.format, 1);
+		++e.format;
 	}
+	/*e.count = */write(e.fd, (const void *)e.buf, (size_t)e.count);
 	va_end(e.arg);
-	return (e.ret);
+	return (e.count);
 }
-

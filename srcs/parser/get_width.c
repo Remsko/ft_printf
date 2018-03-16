@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_arg.c                                        :+:      :+:    :+:   */
+/*   get_width.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/13 11:15:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 17:56:06 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/03/16 15:54:21 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/03/16 17:57:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ft_printf.h"
 
-t_bool		parse_arg(t_env *e)
+static inline int	ft_max(int x, int y)
 {
-	get_flags(e);
-	get_width(e);
-	get_precision(e);
-	get_length(e);
-	get_specifier(e);
+	return (y > x ? y : x);
+}
+
+t_bool				get_width(t_env *e)
+{
+	if (ft_isdigit(*e->format))
+	{
+		e->width = ft_max(1.0, ft_atoi(e->format));
+		while (ft_isdigit(*e->format))
+			++e->format;
+	}
 	return (TRUE);
 }

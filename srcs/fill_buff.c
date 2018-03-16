@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_arg.c                                        :+:      :+:    :+:   */
+/*   fill_buff.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/13 11:15:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 17:56:06 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/03/16 13:26:24 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/03/16 15:44:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ft_printf.h"
 
-t_bool		parse_arg(t_env *e)
+inline void		fill_buff(t_env *e, char *src, int size)
 {
-	get_flags(e);
-	get_width(e);
-	get_precision(e);
-	get_length(e);
-	get_specifier(e);
-	return (TRUE);
+/*
+**	NEED TO CODE THISE CASE :
+**	if ((int new_size = PRINTF_SIZE - e->count) < size)
+*/
+	ft_memcpy((void *)(&e->buf[e->count]), (const void *)src, (size_t)size);
+	e->count += size;
 }

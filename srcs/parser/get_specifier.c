@@ -6,15 +6,16 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/13 20:50:54 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 18:20:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/ft_printf.h"
+#include "../incs/ft_printf.h"
 
-t_bool	get_specifier(t_env *e, const char *f)
+t_bool	get_specifier(t_env *e)
 {
-	if (f[e->index] == 'd')
-		return (print_signed_integer(e) && ++e->index);
+	(void)e;
+	if (*e->format == 'd')
+		return (conv_integer(e));
 	return (TRUE);
 }

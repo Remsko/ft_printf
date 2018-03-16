@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:34:53 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/13 19:41:35 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 17:42:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ typedef struct	s_flag
 	t_bool	plus;
 	t_bool	minus;
 	t_bool	space;
+	t_bool	sharp;
+	t_bool	zero;
 }				t_flag;
 
 typedef enum	s_conv_enum
