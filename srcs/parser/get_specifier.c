@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 18:28:53 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 19:38:23 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 t_bool	get_specifier(t_env *e)
 {
-	(void)e;
-	if (*e->format == 'd')
+	if (*e->format == 'd' || *e->format == 'i' || *e->format == 'D')
 		return (conv_integer(e));
 	return (TRUE);
 }

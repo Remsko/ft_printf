@@ -6,35 +6,38 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:55:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 13:48:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 19:40:15 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/ft_printf.h"
+#include "../../incs/ft_printf.h"
 
-t_bool	conv_integer(t_env *e)
+static inline int	printf_itoa(int n, char *str)
 {
-/*	long long	i;
-	int			tmp;
+	int	tmp;
+	int	len;
+	int	ret;
 
-	i = va_arg(e->arg, long long);
-	if (i > LONG_MAX || i < LONG_MIN)
+	len = (n <= 0);
+	tmp = n;
+	while (++len && tmp)
+		tmp /= 10;
+	ret = --len;
+	tmp = (n < 0) ? -1 : 1;
+	while (len)
 	{
-		e->ret += 2;
-		ft_putnbr(-1);
-		return (TRUE);
+		str[--len] = (n % 10) * tmp + '0';
+		n /= 10;
 	}
-	if ((tmp = (int)i) < 0 && (e->ret += 2))
-		e->flag = (t_flag){ .space = FALSE, .plus = FALSE};
-	else
-		++e->ret;
-	while (tmp /= 10)
-		++e->ret;
-	if (e->flag.plus == TRUE && (e->flag.space = FALSE) == 0 && (++e->ret))
-		ft_putchar('+');
-	if (e->flag.space == TRUE && (++e->ret))
-		ft_putchar(' ');
-	ft_putnbr((int)i);*/
-	(void)e;
+	tmp < 0 ? *str = '-' : 0;
+	return (ret);
+}
+
+t_bool				conv_integer(t_env *e)
+{
+	int arg;
+
+	arg = va_arg(e->arg, int);
+	e->count += printf_itoa(arg, &(e->buf[e->count]));
 	return (TRUE);
 }

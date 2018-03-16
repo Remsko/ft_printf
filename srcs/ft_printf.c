@@ -6,12 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:38:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 18:21:24 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 19:40:56 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ft_printf.h"
-
+/*
 static inline t_bool	pourcent_pair(char **f)
 {
 	char *tmp;
@@ -25,7 +25,7 @@ static inline t_bool	pourcent_pair(char **f)
 		return (TRUE);
 	}
 	return (FALSE);
-}
+}*/
 
 int						ft_printf(const char *format, ...)
 {
@@ -41,8 +41,8 @@ int						ft_printf(const char *format, ...)
 		{
 			if (*e.format == '\0')
 				break ;
-			else if (pourcent_pair(&e.format) == TRUE)
-				fill_buff(&e, e.format, 1);
+	/*		else if (pourcent_pair(&e.format) == TRUE) // NEED A REWORK
+				fill_buff(&e, e.format, 1);*/
 			else if (parse_arg(&e) == FALSE)
 				return (-1);
 		}

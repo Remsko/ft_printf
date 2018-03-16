@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 17:44:25 by rpinoit           #+#    #+#              #
-#    Updated: 2018/03/13 16:15:20 by rpinoit          ###   ########.fr        #
+#    Updated: 2018/03/16 18:50:56 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -175,15 +175,16 @@ CPPFLAGS = -I.
 all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
-	ar -rc $(NAME) $(OBJ_NAME) $(LDLIBS)
+	@ar -rc $(NAME) $(OBJ_NAME) $(LDLIBS)
+	@echo $(NAME) "\x1b[32m✔\x1b[0m"
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJ_NAME)
+	@$(RM) $(OBJ_NAME)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
