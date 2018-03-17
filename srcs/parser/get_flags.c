@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:56:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/17 16:12:29 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/17 18:25:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ t_bool	get_flags(t_env *e)
 		++e->format;
 	}
 	(e->flag.plus || e->flag.minus) ? e->flag.space = FALSE : 0;
-/*	e->flag.minus ? e->flag.zero = FALSE : 0;*/
+	e->flag.minus ? e->flag.zero = FALSE : 0;
 	return (TRUE);
 }

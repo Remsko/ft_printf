@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 16:56:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/17 18:17:41 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/17 18:28:22 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_bool				conv_integer(t_env *e)
 	(arg >= 0 && e->flag.space == TRUE) ? fill_buff(e, " ", 1) : 0;
 	(arg >= 0 && e->flag.plus == TRUE) ? fill_buff(e, "+", 1) : 0;
 	printf_itoa(&(e->buf[e->count]), tmp, arg, len);
-	//e->flag.minus == TRUE ? add_char(e, e->width - len) : 0;
 	e->count += len;
+	e->flag.minus == TRUE ? add_char(e, e->width - len) : 0;
 	return (TRUE);
 }
