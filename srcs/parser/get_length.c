@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:59:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 18:28:22 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/17 14:31:31 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_bool	get_length(t_env *e)
 			e->length = z;
 		else
 			break ;
-		++e->format; // can be remove ?
+		++e->format;
 	}
 	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 19:08:22 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/17 16:44:15 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct	s_env
 	int			width;
 	int			count;
 	int			fd;
+	int			final_size;
 }				t_env;
 
 int		ft_printf(const char *format, ...);
