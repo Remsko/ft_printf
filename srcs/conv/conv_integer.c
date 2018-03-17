@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 16:56:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/17 18:28:22 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/17 18:38:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,23 @@ static inline void	add_char(t_env *e, int size)
 	}
 }
 
+static inline void	print_sign(t_env *e, int *len, int *tmp, int arg)
+{
+	if (e->flag.plus && arg >= 0)
+	{
+		fill_buff(e, "+", 1);
+		--e->width;
+		e->flag.plus = FALSE;
+	}
+	else if (e->flag.zero && arg < 0)
+	{
+		fill_buff(e, "-", 1);
+		--e->width;
+		*len -= 1;
+		*tmp = 1;
+	}
+}
+
 t_bool				conv_integer(t_env *e)
 {
 	int		arg;
@@ -44,19 +61,7 @@ t_bool				conv_integer(t_env *e)
 		tmp /= 10;
 	--len;
 	tmp = (arg < 0) ? -1 : 1;
-	if (e->flag.zero && e->flag.plus && arg >= 0)
-	{
-		fill_buff(e, "+", 1);
-		--e->width;
-		e->flag.plus = FALSE;
-	}
-	else if (e->flag.zero && arg < 0)
-	{
-		fill_buff(e, "-", 1);
-		--e->width;
-		--len;
-		tmp = 1;
-	}
+	e->flag.zero ? print_sign(e, &len, &tmp, arg) : 0;
 	e->flag.minus == FALSE ? add_char(e, e->width - len) : 0;
 	(arg >= 0 && e->flag.space == TRUE) ? fill_buff(e, " ", 1) : 0;
 	(arg >= 0 && e->flag.plus == TRUE) ? fill_buff(e, "+", 1) : 0;
