@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:54:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/17 18:47:35 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 17:23:10 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 ** ft_max(1.0, ft_atoi(e->format))
 */
 
-t_bool				get_width(t_env *e)
+inline void	get_width(t_env *e)
 {
+	e->width = 0;
 	if (ft_isdigit(*e->format))
 	{
 		e->width = ft_atoi(e->format);
 		while (ft_isdigit(*e->format))
 			++e->format;
 	}
-	return (TRUE);
 }

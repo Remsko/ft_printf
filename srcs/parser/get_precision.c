@@ -6,24 +6,24 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:58:29 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/16 18:28:44 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 17:47:09 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
-
+/*
 static inline int	ft_max(int x, int y)
 {
 	return (y > x ? y : x);
 }
-
-t_bool				get_precision(t_env *e)
+*/
+inline void			get_precision(t_env *e)
 {
+	e->precision = 0;
 	if (*e->format == '.' && ++e->format)
 	{
-		e->width = ft_max(1, ft_atoi(e->format));
+		e->precision = ft_atoi(e->format);//ft_max(1, ft_atoi(e->format));
 		while (ft_isdigit(*e->format))
 			++e->format;
 	}
-	return (TRUE);
 }

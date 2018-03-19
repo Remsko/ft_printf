@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:38:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/17 18:39:46 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 15:44:09 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ int						ft_printf(const char *format, ...)
 {
 	t_env	e;
 
-	ft_bzero(&e, sizeof(e));
-	e.fd = 1;
 	e.format = (char *)format;
+	e.count = 0;
 	va_start(e.arg, format);
 	while (*e.format != '\0')
 	{
@@ -26,14 +25,13 @@ int						ft_printf(const char *format, ...)
 		{
 			if (*e.format == '\0')
 				break ;
-			else if (parse_arg(&e) == FALSE)
-				return (-1);
+			parse_arg(&e);
 		}
 		else
 			fill_buff(&e, e.format, 1);
 		++e.format;
 	}
-	write(e.fd, (const void *)e.buf, (size_t)e.count);
+	write(1, (const void *)e.buf, (size_t)e.count);
 	va_end(e.arg);
 	return (e.count);
 }

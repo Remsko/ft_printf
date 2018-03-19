@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/17 16:44:15 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 18:12:05 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,41 @@ typedef struct	s_env
 	t_flag		flag;
 	t_len_enum	length;
 	int			width;
+	int			precision;
 	int			count;
-	int			fd;
-	int			final_size;
+	int			new_size;
 }				t_env;
 
-int		ft_printf(const char *format, ...);
+int			ft_printf(const char *format, ...);
 
-t_bool	parse_arg(t_env *e);
+void		parse_arg(t_env *e);
 
-t_bool  conv_integer(t_env *e);
+void		conv_nb(t_env *e, intmax_t arg);
 
-t_bool	get_flags(t_env *e);
+void		conv_unsigned_nb(t_env *e, uintmax_t arg);
 
-t_bool	get_width(t_env *e);
+void		conv_str(t_env *e, char *arg);
 
-t_bool	get_precision(t_env *e);
+void		conv_char(t_env *e, int arg);
 
-t_bool	get_length(t_env *e);
+void		conv_ptr(t_env *e, void *arg);
 
-t_bool	get_specifier(t_env *e);
+void		get_flags(t_env *e);
 
-void	fill_buff(t_env *e, char *src, int size);
+void		get_width(t_env *e);
+
+void		get_precision(t_env *e);
+
+void		get_length(t_env *e);
+
+void		get_specifier(t_env *e);
+
+void		fill_buff(t_env *e, char *src, int size);
+
+void		add_char(t_env *e, int size, char c);
+
+void		chose_cast_nb(t_env *e);
+
+void		chose_cast_unsigned_nb(t_env *e);
 
 #endif

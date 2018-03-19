@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:56:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/17 18:46:44 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 15:42:22 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 ** && e->flag.zero != TRUE
 */
 
-t_bool	get_flags(t_env *e)
+inline void	get_flags(t_env *e)
 {
+	e->flag = (t_flag){ .plus = FALSE, .minus = FALSE, .space = FALSE, .sharp = FALSE, .zero = FALSE};
 	while (1)
 	{
 		if (*e->format == '-')
@@ -40,5 +41,4 @@ t_bool	get_flags(t_env *e)
 	}
 	(e->flag.plus || e->flag.minus) ? e->flag.space = FALSE : 0;
 	e->flag.minus ? e->flag.zero = FALSE : 0;
-	return (TRUE);
 }

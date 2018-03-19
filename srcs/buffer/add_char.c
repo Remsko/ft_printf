@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_length.c                                       :+:      :+:    :+:   */
+/*   add_char.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/16 15:59:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 15:42:38 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/03/19 17:26:02 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/03/19 17:28:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
 
-inline void get_length(t_env *e)
+inline void	add_char(t_env *e, int size, char c)
 {
-	e->length = none;
-	while (1)
+	while (size > 0)
 	{
-		if (*e->format == 'h')
-			e->length = (e->format[1] == 'h' && ++e->format) ? hh : h;
-		else if (*e->format == 'l')
-			e->length = (e->format[1] == 'l' && ++e->format) ? ll : l;
-		else if (*e->format == 'j')
-			e->length = j;
-		else if (*e->format == 'z')
-			e->length = z;
-		else
-			break ;
-		++e->format;
+		fill_buff(e, &c, 1);
+		--size;
 	}
 }
