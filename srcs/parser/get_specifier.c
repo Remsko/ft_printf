@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 18:00:35 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 18:20:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ inline void	get_specifier(t_env *e)
 		return ;
 	else if (*e->format == 'u' || *e->format == 'U')
 		return (chose_cast_unsigned_nb(e));
-	else if (*e->format == 'U')
-		return ;
 	else if (*e->format == 'x')
 		return ;
 	else if (*e->format == 'X')
