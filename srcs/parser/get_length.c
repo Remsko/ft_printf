@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:59:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 15:42:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 19:58:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
 
-inline void get_length(t_env *e)
+inline void	get_length(t_env *e)
 {
 	e->length = none;
 	while (1)

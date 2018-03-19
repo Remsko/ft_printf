@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 18:20:41 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 19:47:16 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ inline void	get_specifier(t_env *e)
 	else if (*e->format == 'p')
 		return (conv_ptr(e, va_arg(e->arg, void *)));
 	else if (*e->format == 'o')
-		return ;
+		return (chose_cast_unsigned_nb(e));
 	else if (*e->format == 'O')
-		return ;
+		return (chose_cast_unsigned_nb(e));
 	else if (*e->format == 'u' || *e->format == 'U')
 		return (chose_cast_unsigned_nb(e));
 	else if (*e->format == 'x')
-		return ;
+		return (chose_cast_unsigned_nb(e));
 	else if (*e->format == 'X')
-		return ;
+		return (chose_cast_unsigned_nb(e));
 	else if (*e->format == 'c')
 		return (conv_char(e, va_arg(e->arg, int)));
 	else if (*e->format == 'C')

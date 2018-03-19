@@ -6,23 +6,19 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:56:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 15:42:22 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/19 19:57:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
 
 /*
-** && e->flag.minus != TRUE
-** && e->flag.plus != TRUE
-** && e->flag.space != TRUE
-** && e->flag.sharp != TRUE
-** && e->flag.zero != TRUE
+** e->flag = (t_flag){FALSE, FALSE, FALSE, FALSE, FALSE};
 */
 
 inline void	get_flags(t_env *e)
 {
-	e->flag = (t_flag){ .plus = FALSE, .minus = FALSE, .space = FALSE, .sharp = FALSE, .zero = FALSE};
+	ft_bzero(&e->flag, sizeof(t_flag));
 	while (1)
 	{
 		if (*e->format == '-')
