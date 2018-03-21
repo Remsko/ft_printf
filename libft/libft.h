@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:38:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/10 17:59:58 by jpicot           ###   ########.fr       */
+/*   Updated: 2018/03/21 15:13:44 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@
 # include <fcntl.h>
 
 # define BUFF_SIZE 32
-# define DEFINE_PI 3.14159265359
 
 typedef unsigned char	t_bool;
-typedef unsigned int	t_uint32;
 
 typedef struct		s_list
 {
@@ -32,25 +30,6 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
-typedef struct		s_3ipair
-{
-	int x;
-	int y;
-	int	z;
-}					t_3ipair;
-
-typedef struct		s_2ipair
-{
-	int x;
-	int y;
-}					t_2ipair;
-
-typedef struct		s_2dpair
-{
-	double x;
-	double y;
-}					t_2dpair;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -113,7 +92,6 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_count_words(char const *s, char c);
 int					ft_atoi_base(const char *str, int str_base);
-int					ft_isspace(int c);
 void				ft_print_words_tables(char **tab);
 char				*ft_itoa_base(int value, int base);
 void				ft_swap(int *a, int *b);
@@ -121,13 +99,12 @@ int					ft_sqrt(int nb);
 int					ft_find_next_prime(int nb);
 int					ft_isnegative(int n);
 int					get_next_line(const int fd, char **line);
-double				ft_degtorad(double deg);
-double				ft_radtodeg(double rad);
-double				ft_pow(double nb, int e);
-double				ft_atod(const char *str);
-int					ft_tablen(char **str);
-void				ft_deltab(void *content, size_t content_size);
-void				ft_lstrev(t_list **alst);
-int					ft_strdigit(const char *s);
+int					ft_isspace(int c);
+int					ft_intmax(int x, int y);
+int					ft_intpow(int n, int p);
+char				*ft_strndup(const char *s, size_t n);
+int					ft_unblen(uintmax_t n, uintmax_t base);
+int					ft_nblen(intmax_t n, intmax_t base);
+int					ft_unblen(uintmax_t n, uintmax_t base);
 
 #endif

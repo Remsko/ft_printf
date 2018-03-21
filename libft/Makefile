@@ -1,20 +1,8 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/03/08 17:44:25 by rpinoit           #+#    #+#              #
-#    Updated: 2018/03/16 18:50:56 by rpinoit          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Werror -Wextra
-SRC_NAME = ft_lstdel.c \
+CFLAGS = -c -Wall -Werror -Wextra
+FILES = ft_lstdel.c \
 		ft_memmove.c \
 		ft_strchr.c \
 		ft_strlen.c \
@@ -82,16 +70,13 @@ SRC_NAME = ft_lstdel.c \
 		ft_find_next_prime.c \
 		ft_isnegative.c \
 		get_next_line.c \
-		ft_degtorad.c \
-		ft_radtodeg.c \
-		ft_atod.c \
-		ft_pow.c \
-		ft_tablen.c \
-		ft_deltab.c \
-		ft_lstrev.c \
-		ft_strdigit.c
+		ft_intmax.c \
+		ft_intpow.c \
+		ft_strndup.c \
+		ft_nblen.c \
+		ft_unblen.c \
 
-OBJ_NAME = ft_lstdel.o \
+O_DIR = ft_lstdel.o \
 		ft_memmove.o \
 		ft_strchr.o \
 		ft_strlen.o \
@@ -159,32 +144,22 @@ OBJ_NAME = ft_lstdel.o \
 		ft_find_next_prime.o \
 		ft_isnegative.o \
 		get_next_line.o \
-		ft_degtorad.o \
-		ft_radtodeg.o \
-		ft_atod.o \
-	   	ft_pow.o \
-		ft_tablen.o \
-		ft_deltab.o \
-		ft_lstrev.o \
-		ft_strdigit.o
-
-LDLIBS =
-
-CPPFLAGS = -I.
+		ft_intmax.o \
+		ft_intpow.o \
+		ft_strndup.o \
+		ft_nblen.o \
+		ft_unblen.o \
 
 all: $(NAME)
 
-$(NAME): $(OBJ_NAME)
-	@ar -rc $(NAME) $(OBJ_NAME) $(LDLIBS)
-	@echo $(NAME) "\x1b[32m✔\x1b[0m"
-
-%.o: %.c
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+$(NAME):
+	$(CC) $(CFLAGS) $(FILES)
+	ar rc libft.a $(O_DIR)
 
 clean:
-	@$(RM) $(OBJ_NAME)
+	$(RM) $(O_DIR)
 
 fclean: clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all

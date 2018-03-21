@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 10:26:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/11/13 13:23:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 11:40:16 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void *dst;
+	void *ret;
 
-	dst = malloc(size);
-	if (dst == NULL)
+	if ((ret = malloc(size)) == NULL)
 		return (NULL);
-	ft_memset(dst, 0, size);
-	return (dst);
+	ft_memset(ret, 0, size);
+	return (ret);
 }

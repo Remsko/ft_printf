@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:54:53 by rpinoit           #+#    #+#             */
-/*   Updated: 2017/11/16 18:31:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 12:20:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 char	*ft_strcpy(char *dest, const char *src)
 {
-	size_t i;
+	char *str;
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
+	str = dest;
+	while ((*str++ = *src++))
+		;
 	return (dest);
 }

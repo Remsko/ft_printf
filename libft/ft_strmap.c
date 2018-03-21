@@ -17,15 +17,15 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	size_t	i;
 	char	*str;
 
-	i = 0;
-	if (s == NULL || !f)
+	if (!s || !f)
 		return (NULL);
 	if (!(str = (char*)malloc(sizeof(*str) * (ft_strlen(s) + 1))))
 		return (NULL);
+	i = 0;
 	while (s[i] != 0)
 	{
 		str[i] = (*f)(s[i]);
-		i++;
+		++i;
 	}
 	str[i] = '\0';
 	return (str);

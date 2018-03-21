@@ -2,8 +2,8 @@ NAME = libftprintf.a
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra
-SRC_NAME = libft/ft_putchar.c \
-		   libft/ft_putnbr.c \
+SRC_NAME = libft/ft_intmax.c \
+		   libft/ft_nblen.c \
 		   libft/ft_atoi.c \
 		   libft/ft_isdigit.c \
 		   libft/ft_bzero.c \

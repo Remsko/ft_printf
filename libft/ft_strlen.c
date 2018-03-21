@@ -6,18 +6,18 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:10:00 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 19:37:44 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 14:02:49 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
 	size_t i;
 
 	i = 0;
-	while (s[i] != '\0')
-		i++;
+	while (*str++)
+		++i;
 	return (i);
 }

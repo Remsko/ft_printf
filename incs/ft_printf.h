@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 18:25:12 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 16:16:09 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void		get_specifier(t_env *e);
 
 void		fill_buff(t_env *e, char *src, int size);
 
-void		add_char(t_env *e, int size, char c);
+void		add_nchar(t_env *e, int n, char c);
 
 void		chose_cast_nb(t_env *e);
 

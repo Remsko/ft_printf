@@ -6,47 +6,31 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 09:46:33 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/02/13 09:28:46 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 16:31:44 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_push_in_tab(char *tab, int len, int n, int sign)
-{
-	while (len > -1)
-	{
-		tab[len] = n % 10 + '0';
-		n = n / 10;
-		len--;
-	}
-	if (sign == 1)
-		tab[0] = '-';
-	return (tab);
-}
-
 char		*ft_itoa(int n)
 {
-	char	*tab;
+	char	*str;
 	int		len;
-	int		tmp_n;
-	int		sign;
+	int		tmp;
 
-	len = 0;
-	sign = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (n < 0)
-	{
-		sign = 1;
-		n = -n;
-	}
-	tmp_n = n;
-	while (tmp_n /= 10)
-		len++;
-	len = len + sign;
-	if (!(tab = (char*)malloc(sizeof(*tab) * (len + 2))))
+	len = (n <= 0);
+	tmp = n;
+	while (++len && tmp)
+		tmp /= 10;
+	if (!(str = (char*)malloc(sizeof(*str) * (len))))
 		return (NULL);
-	tab[len + 1] = '\0';
-	return (ft_push_in_tab(tab, len, n, sign));
+	str[--len] = '\0';
+	tmp = (n < 0) ? -1 : 1;
+	while (len)
+	{
+		str[--len] = (n % 10) * tmp + '0';
+		n /= 10;
+	}
+	tmp < 0 ? *str = '-' : 0;
+	return (str);
 }

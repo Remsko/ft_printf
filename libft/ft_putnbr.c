@@ -16,12 +16,13 @@ void	ft_putnbr(int n)
 {
 	unsigned int tmp_nb;
 
-	tmp_nb = n;
 	if (n < 0)
 	{
 		ft_putchar('-');
 		tmp_nb = -n;
 	}
+	else
+		tmp_nb = n;
 	if (tmp_nb > 9)
 	{
 		ft_putnbr(tmp_nb / 10);

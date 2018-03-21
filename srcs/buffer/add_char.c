@@ -6,17 +6,17 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 17:26:02 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 17:28:11 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 16:15:37 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
 
-inline void	add_char(t_env *e, int size, char c)
+inline void	add_nchar(t_env *e, int n, char c)
 {
-	while (size > 0)
+	while (n > 0)
 	{
 		fill_buff(e, &c, 1);
-		--size;
+		--n;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 14:29:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/08 18:03:06 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/16 10:34:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	ft_atoi_base(const char *str, int str_base)
 	if (str_base <= 1 || str_base > 16)
 		return (0);
 	while (ft_isspace(*str))
-		str++;
-	sign = *str == '-' ? -1 : 1;
+		++str;
+	sign = (*str++ == '-');
 	if (*str == '+' || *str == '-')
-		str++;
+		++str;
 	while (*str)
 	{
 		if (*str <= '9' && *str >= '0' && *str - '0' < str_base)
@@ -35,7 +35,7 @@ int	ft_atoi_base(const char *str, int str_base)
 			result = result * str_base + (*str - 'a' + 10);
 		else
 			return (0);
-		str++;
+		++str;
 	}
-	return (result * sign);
+	return (sign ? -result : result);
 }

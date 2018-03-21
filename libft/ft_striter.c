@@ -14,15 +14,12 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	size_t i;
-
-	i = 0;
-	if (s != NULL && f != NULL)
+	if (s && f)
 	{
-		while (s[i] != 0)
+		while (*s)
 		{
-			(*f)(&s[i]);
-			i++;
+			(*f)(s);
+			++s;
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 17:13:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 19:44:02 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 16:17:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ inline void		conv_str(t_env *e, char *arg)
 		len = e->precision < len ? e->precision : len;
 	else if (e->precision == 0)
 		len = 0;
-	e->flag.minus ? 0 : add_char(e, e->width - len, ' ');
+	e->flag.minus ? 0 : add_nchar(e, e->width - len, ' ');
 	fill_buff(e, arg, len);
-	e->flag.minus ? add_char(e, e->width - len, ' ') : 0;
+	e->flag.minus ? add_nchar(e, e->width - len, ' ') : 0;
 }
