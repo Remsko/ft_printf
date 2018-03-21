@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 16:16:09 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 17:50:53 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define TRUE 1
 # define FALSE 0 
 
+# define NB_LENGTH_MAX 19
 # define PRINTF_SIZE 128
 
 # include "../libft/libft.h"

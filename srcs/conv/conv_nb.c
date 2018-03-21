@@ -6,35 +6,35 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:13:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 16:32:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 18:14:30 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
-#define SIGN_MULT n < 0 ? -1 : 1
-#define SIGN_COND (e->flag.plus && arg >= 0) || arg < 0
-#define SIGN_CHOSE arg < 0 ? '-' : '+'
 
 inline static void	printf_itoa(t_env *e, intmax_t n)
 {
+	char	str[NB_LENGTH_MAX];
 	int		len;
-	char	c;
+	int		tmp;
 
 	len = ft_nblen(n, 10);
-	while (len)
+	tmp = len;
+	while (len--)
 	{
-		c = (n % 10) * (SIGN_MULT) + '0';
+		str[len] = (n % 10) * (n < 0 ? -1 : 1) + '0';
 		n /= 10;
-		fill_buff(e, &c, 1);
 	}
+	fill_buff(e, str, tmp);
 }
 
-inline static int 	get_zero(t_env *e)
+inline static int 	get_zero(t_env *e, intmax_t arg)
 {
 	if (e->flag.zero == FALSE && e->precision <= 0)
 		return (0);
 	else if (e->flag.zero == TRUE && e->precision < e->width)
-		return (e->precision);
+		return (e->precision <= 0 ? e->width -
+				((e->flag.plus && arg >= 0) || arg < 0) : e->precision);
 	else
 		return (e->precision);
 }
@@ -46,15 +46,18 @@ inline void			conv_nb(t_env *e, intmax_t arg)
 	int	space;
 
 	len = ft_nblen(arg, 10);
-	zero = ft_intmax(0, get_zero(e) - len);
-	space = ft_intmax(0, e->width - (len + zero + (SIGN_COND)));
+	zero = ft_intmax(0, get_zero(e, arg) - len);
+	space = ft_intmax(0, e->width - (len + zero +
+				((e->flag.plus && arg >= 0) || arg < 0)));
+	if ((e->flag.plus && arg >= 0) || arg < 0 || zero > 0 || space > 0)
+		e->flag.space = FALSE;
 	if (e->flag.minus == FALSE)
-		add_nchar(e, space, ' ');
-	if (SIGN_COND)
-		add_nchar(e, 1, SIGN_CHOSE);
+		add_nchar(e, space + (int)e->flag.space, ' ');
+	if ((e->flag.plus && arg >= 0) || arg < 0)
+		add_nchar(e, 1, (arg < 0 ? '-' : '+'));
 	if (zero)
 		add_nchar(e, zero, '0');
-	printf_itoa(e, arg);
+	(e->precision == 0 && arg == 0) ? 0 : printf_itoa(e, arg);
 	if (e->flag.minus == TRUE)
-		add_nchar(e, space, ' ');
+		add_nchar(e, space + (int)e->flag.space, ' ');
 }
