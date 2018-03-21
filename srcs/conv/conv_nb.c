@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:13:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 18:14:30 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 18:39:39 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ inline static int 	get_zero(t_env *e, intmax_t arg)
 		return (0);
 	else if (e->flag.zero == TRUE && e->precision < e->width)
 		return (e->precision <= 0 ? e->width -
-				((e->flag.plus && arg >= 0) || arg < 0) : e->precision);
+				(((e->flag.plus && arg >= 0) || arg < 0) || e->flag.space)
+				: e->precision);
 	else
 		return (e->precision);
 }
@@ -57,7 +58,10 @@ inline void			conv_nb(t_env *e, intmax_t arg)
 		add_nchar(e, 1, (arg < 0 ? '-' : '+'));
 	if (zero)
 		add_nchar(e, zero, '0');
-	(e->precision == 0 && arg == 0) ? 0 : printf_itoa(e, arg);
+	if (e->precision == 0 && arg == 0)
+		e->width ? fill_buff(e, " ", 1) : 0;
+	else
+		printf_itoa(e, arg);
 	if (e->flag.minus == TRUE)
 		add_nchar(e, space + (int)e->flag.space, ' ');
 }

@@ -4,6 +4,7 @@ RM = rm -f
 CFLAGS = -Wall -Werror -Wextra
 SRC_NAME = libft/ft_intmax.c \
 		   libft/ft_nblen.c \
+		   libft/ft_unblen.c \
 		   libft/ft_putchar.c \
 		   libft/ft_atoi.c \
 		   libft/ft_isdigit.c \

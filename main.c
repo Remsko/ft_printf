@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 18:08:24 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 18:31:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
    int		main(void)
    {
-   printf("%s\n", "delicieux");
-   int ret = printf("printf = % 05D\n", 24);
+   printf("%s\n", "@moulitest: %5.d %5.0d, 0, 0");
+   int ret = printf("printf1 = @moulitest: %5.d %5.0d\n", 0, 0);
    ft_putchar('\n');
-   printf("printf ret = %d\n", ret);
+   printf("ret1 = %d\n", ret);
    ft_putchar('\n');
-   ret = ft_printf("ft_printf = % 05D\n", 24);
+   ret = ft_printf("printf2 = @moulitest: %5.d %5.0d\n", 0, 0);
    ft_putchar('\n');
-   printf("ft_printf ret = %d\n", ret);
+   printf("ret2 = %d\n", ret);
    ft_putchar('\n');
    return (0);
    }

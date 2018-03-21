@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 17:50:53 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 18:54:49 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define FALSE 0 
 
 # define NB_LENGTH_MAX 19
+# define U_NB_LENGTH_MAX 20
 # define PRINTF_SIZE 128
 
 # include "../libft/libft.h"
@@ -57,7 +58,7 @@ void		parse_arg(t_env *e);
 
 void		conv_nb(t_env *e, intmax_t arg);
 
-void		conv_unsigned_nb(t_env *e, uintmax_t arg);
+void		conv_unsigned_nb(t_env *e, uintmax_t arg, uintmax_t base);
 
 void		conv_str(t_env *e, char *arg);
 
@@ -81,6 +82,6 @@ void		add_nchar(t_env *e, int n, char c);
 
 void		chose_cast_nb(t_env *e);
 
-void		chose_cast_unsigned_nb(t_env *e);
+void		chose_cast_unsigned_nb(t_env *e, uintmax_t base);
 
 #endif

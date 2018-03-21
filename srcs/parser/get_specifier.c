@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 19:47:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/21 18:53:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,12 @@ inline void	get_specifier(t_env *e)
 		return ;
 	else if (*e->format == 'p')
 		return (conv_ptr(e, va_arg(e->arg, void *)));
-	else if (*e->format == 'o')
-		return (chose_cast_unsigned_nb(e));
-	else if (*e->format == 'O')
-		return (chose_cast_unsigned_nb(e));
+	else if (*e->format == 'o' || *e->format == 'O')
+		return (chose_cast_unsigned_nb(e, 8));
 	else if (*e->format == 'u' || *e->format == 'U')
-		return (chose_cast_unsigned_nb(e));
-	else if (*e->format == 'x')
-		return (chose_cast_unsigned_nb(e));
-	else if (*e->format == 'X')
-		return (chose_cast_unsigned_nb(e));
+		return (chose_cast_unsigned_nb(e, 10));
+	else if (*e->format == 'x' || *e->format == 'X')
+		return (chose_cast_unsigned_nb(e, 10));
 	else if (*e->format == 'c')
 		return (conv_char(e, va_arg(e->arg, int)));
 	else if (*e->format == 'C')
