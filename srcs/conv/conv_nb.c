@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:13:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 18:39:39 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/23 11:11:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ inline static void	printf_itoa(t_env *e, intmax_t n)
 	fill_buff(e, str, tmp);
 }
 
-inline static int 	get_zero(t_env *e, intmax_t arg)
+inline static int	get_zero(t_env *e, intmax_t arg)
 {
 	if (e->flag.zero == FALSE && e->precision <= 0)
 		return (0);

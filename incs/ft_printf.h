@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 18:54:49 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/23 15:12:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,15 @@ void		parse_arg(t_env *e);
 
 void		conv_nb(t_env *e, intmax_t arg);
 
-void		conv_unsigned_nb(t_env *e, uintmax_t arg, uintmax_t base);
+void		conv_unsigned(t_env *e, unsigned long long arg, short base);
 
 void		conv_str(t_env *e, char *arg);
 
 void		conv_char(t_env *e, int arg);
 
 void		conv_ptr(t_env *e, void *arg);
+
+void		conv_pourcent(t_env *e, void *arg);
 
 void		get_flags(t_env *e);
 
@@ -82,6 +84,6 @@ void		add_nchar(t_env *e, int n, char c);
 
 void		chose_cast_nb(t_env *e);
 
-void		chose_cast_unsigned_nb(t_env *e, uintmax_t base);
+void		chose_cast_unsigned_nb(t_env *e, short base);
 
 #endif

@@ -6,15 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:56:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 18:19:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/23 13:46:13 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
-
-/*
-** e->flag = (t_flag){FALSE, FALSE, FALSE, FALSE, FALSE};
-*/
 
 inline void	get_flags(t_env *e)
 {
@@ -35,6 +31,6 @@ inline void	get_flags(t_env *e)
 			break ;
 		++e->format;
 	}
-//	(e->flag.plus || e->flag.minus) ? e->flag.space = FALSE : 0;
-	e->flag.minus ? e->flag.zero = FALSE : 0;
+	if (e->flag.minus == TRUE)
+		e->flag.zero = FALSE;
 }
