@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/23 17:13:22 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/23 18:08:27 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ inline void	get_specifier(t_env *e)
 	else if (*e->format == '%')
 		conv_pourcent(e, va_arg(e->arg, void *));
 	else
-		return ;
+		fill_buff(e, e->format, 1);
 }

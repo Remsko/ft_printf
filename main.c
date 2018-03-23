@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/23 16:05:15 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/23 18:06:18 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int		main(void)
 	char *str;
 
 	str = NULL;
-	int ret = printf("1 = %p\n", str);
+	int ret = printf("% Zoooo\n");
 	ft_putchar('\n');
 	printf("ret1 = %d\n", ret);
 	ft_putchar('\n');
-	ret = ft_printf("2 = %p\n", str);
+	ret = ft_printf("% Zoooo\n");
 	ft_putchar('\n');
 	printf("ret2 = %d\n", ret);
 	ft_putchar('\n');
