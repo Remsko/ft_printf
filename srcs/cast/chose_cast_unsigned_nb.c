@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 11:41:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/23 11:10:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/23 17:33:08 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 inline void	chose_cast_unsigned_nb(t_env *e, short base)
 {
-	if (*e->format == 'U' || *e->format == 'O' || *e->format == 'X')
+	if (*e->format == 'U' || *e->format == 'O')
 		e->length = l;
 	if (e->length == none)
 		conv_unsigned(e,
