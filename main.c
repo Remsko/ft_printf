@@ -6,22 +6,23 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/23 18:06:18 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/24 12:04:21 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incs/ft_printf.h"
+#include "stdio.h"
 
 int		main(void)
 {
 	char *str;
 
 	str = NULL;
-	int ret = printf("% Zoooo\n");
+	int ret = printf("printf = |%lc|\n", L'猫');
 	ft_putchar('\n');
 	printf("ret1 = %d\n", ret);
 	ft_putchar('\n');
-	ret = ft_printf("% Zoooo\n");
+	ret = ft_printf("ft_printf = |%lc|\n", L'猫');
 	ft_putchar('\n');
 	printf("ret2 = %d\n", ret);
 	ft_putchar('\n');

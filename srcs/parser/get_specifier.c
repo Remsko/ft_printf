@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/23 18:08:27 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/24 11:58:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ inline void	get_specifier(t_env *e)
 	else if (*e->format == 'x' || *e->format == 'X')
 		chose_cast_unsigned_nb(e, 16);
 	else if (*e->format == 'c')
-		conv_char(e, va_arg(e->arg, int));
+		e->length == l ? 0 : conv_char(e, va_arg(e->arg, int));
 	else if (*e->format == 'C')
-		return ;//return (conv_char(e, va_arg(e->arg, wchar_t)));
+		conv_wchar(e, va_arg(e->arg, wchar_t));
 	else if (*e->format == '%')
 		conv_pourcent(e, va_arg(e->arg, void *));
 	else

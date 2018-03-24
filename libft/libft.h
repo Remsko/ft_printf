@@ -6,7 +6,7 @@
 /*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:38:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/23 10:46:34 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/24 12:12:43 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <fcntl.h>
 
 # define BUFF_SIZE 32
+# define TRUE 1
+# define FALSE 0
 
 typedef unsigned char	t_bool;
 

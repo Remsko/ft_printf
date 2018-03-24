@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   conv_wchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/24 12:13:12 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/03/24 11:44:46 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/03/24 11:50:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../../incs/ft_printf.h"
 
-# define NB_LENGTH_MAX 19
-# define U_NB_LENGTH_MAX 20
-# define PRINTF_SIZE 128
+inline void	conv_wchar(t_env *e, wchar_t arg)
+{
+	char c;
 
-# include "../libft/libft.h"
-# include "stdarg.h"
-# include "types.h"
-# include "proto.h"
-
-#endif
+	c = (char)arg;
+	e->flag.minus ? 0 : add_nchar(e, e->width - 1, ' ');
+	fill_buff(e, &c, 1);
+	e->flag.minus ? add_nchar(e, e->width - 1, ' ') : 0;
+}
