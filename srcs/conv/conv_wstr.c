@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   conv_wstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/24 14:57:23 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/03/24 14:57:11 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/03/24 14:59:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../../incs/ft_printf.h"
 
-# define NB_LENGTH_MAX 19
-# define U_NB_LENGTH_MAX 20
-# define PRINTF_SIZE 128
-
-# include "../libft/libft.h"
-# include "stdarg.h"
-# include "types.h"
-# include "proto.h"
-
-#endif
+inline void		conv_wstr(t_env *e, wchar_t *arg)
+{
+	(void)e;
+	(void)arg;
+}

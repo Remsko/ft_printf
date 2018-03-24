@@ -21,6 +21,7 @@ SRC_NAME = libft/ft_intmax.c \
 		   srcs/conv/conv_nb.c \
 		   srcs/conv/conv_unsigned_nb.c \
 		   srcs/conv/conv_str.c \
+		   srcs/conv/conv_wstr.c \
 		   srcs/conv/conv_char.c \
 		   srcs/conv/conv_wchar.c \
 		   srcs/conv/conv_ptr.c \

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 12:05:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/24 12:08:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/03/24 14:57:37 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	conv_nb(t_env *e, intmax_t arg);
 void	conv_unsigned(t_env *e, unsigned long long arg, short base);
 
 void	conv_str(t_env *e, char *arg);
+
+void	conv_wstr(t_env *e, wchar_t *arg);
 
 void	conv_char(t_env *e, int arg);
 
