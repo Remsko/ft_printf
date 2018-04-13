@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/24 14:57:23 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/13 14:05:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # define PRINTF_SIZE 128
 
 # include "../libft/libft.h"
-# include "stdarg.h"
+# include <stdarg.h>
+# include <locale.h>
+
 # include "types.h"
 # include "proto.h"
 

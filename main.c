@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/24 14:56:18 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/13 16:00:37 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,26 @@
 
 int		main(void)
 {
+	setlocale(LC_ALL,"");
+	
 	char *str;
+	wchar_t    s[4];
 
+	s[0] = 'a';
+	s[1] = 250;
+	s[2] = 'b';
+	s[3] = '\0';
+
+	int ret = ft_printf("ft_printf = %-4S\n", s);
+	printf("ret2 = %d\n", ret);
+	ret = printf("printf = %-4S\n", s);
+	printf("ret1 = %d\n", ret);
 	str = NULL;
-	int ret = printf("printf = |%S|\n", 203473294295);
+	ret = printf("printf = |%C|\n", 0x11ffff);
 	ft_putchar('\n');
 	printf("ret1 = %d\n", ret);
 	ft_putchar('\n');
-	ret = ft_printf("ft_printf = |%S|\n", 5);
+	ret = ft_printf("ft_printf = |%C|\n", 0x11ffff);
 	ft_putchar('\n');
 	printf("ret2 = %d\n", ret);
 	ft_putchar('\n');

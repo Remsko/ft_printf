@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:38:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/19 19:50:46 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/13 14:40:42 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int						ft_printf(const char *format, ...)
 			fill_buff(&e, e.format, 1);
 		++e.format;
 	}
+	if (e.iserror == TRUE)
+		return (-1);
 	write(1, (const void *)e.buf, (size_t)e.count);
 	va_end(e.arg);
 	return (e.count);
