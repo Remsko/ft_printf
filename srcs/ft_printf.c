@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:38:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 15:14:05 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 15:38:15 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int						ft_printf(const char *format, ...)
 
 	e.format = (char *)format;
 	e.count = 0;
+	e.iserror = FALSE;
 	va_start(e.arg, format);
 	while (*e.format != '\0')
 	{
