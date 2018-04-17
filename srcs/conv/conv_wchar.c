@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 11:44:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 15:04:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 15:34:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,25 +56,28 @@ inline static short	ft_wcharlen(wchar_t arg)
 
 inline static void	get_unicode(wchar_t arg, char c[4], short len)
 {
-	if (len == 1)
-		c[0] = arg;
-	else if (len == 2)
+	if (len <= MB_CUR_MAX)
 	{
-		c[0] = 0xC0 + (arg >> 6 & 0x1F);
-		c[1] = 0x80 + (arg & 0x3F);
-	}
-	else if (len == 3)
-	{
-		c[0] = 0xE0 + (arg >> 12 & 0xF);
-		c[1] = 0x80 + (arg >> 6 & 0x3F);
-		c[2] = 0x80 + (arg & 0x3F);
-	}
-	else if (len == 4)
-	{
-		c[0] = 0xF0 + (arg >> 18 & 0x7);
-		c[1] = 0x80 + (arg >> 12 & 0x3F);
-		c[2] = 0x80 + (arg >> 6 & 0x3F);
-		c[3] = 0x80 + (arg & 0x3F);
+		if (len == 1)
+			c[0] = arg;
+		else if (len == 2)
+		{
+			c[0] = 0xC0 + (arg >> 6 & 0x1F);
+			c[1] = 0x80 + (arg & 0x3F);
+		}
+		else if (len == 3)
+		{
+			c[0] = 0xE0 + (arg >> 12 & 0xF);
+			c[1] = 0x80 + (arg >> 6 & 0x3F);
+			c[2] = 0x80 + (arg & 0x3F);
+		}
+		else if (len == 4)
+		{
+			c[0] = 0xF0 + (arg >> 18 & 0x7);
+			c[1] = 0x80 + (arg >> 12 & 0x3F);
+			c[2] = 0x80 + (arg >> 6 & 0x3F);
+			c[3] = 0x80 + (arg & 0x3F);
+		}
 	}
 }
 
