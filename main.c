@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 15:22:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 17:09:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		main(void)
 
 	int ret = 0;
 
-	ret = printf("pf = %x %% %S\n", 42, L"لحم خنزير");
+	ret = printf("pf = %-100S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
 	printf("ret pf = %d\n\n", ret);
-	ret = ft_printf("ft = %x %% %S\n", 42, L"لحم خنزير");
+	ret = ft_printf("ft = %-100S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
 	printf("ret ft = %d\n\n", ret);
 	return (0);
 }

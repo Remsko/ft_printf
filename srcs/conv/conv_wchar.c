@@ -6,37 +6,37 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 11:44:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 15:34:06 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 16:51:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
 
 /*
- ** less than 8 bits -> 0xxxxxxx -> 0x0
- **                     mask = 01111111 -> 0x7F;
- **
- ** less than 12 bits -> 110xxxxx -> 0xC0
- **					    mask = 00011111 -> 0x1F;
- **						10xxxxxx -> 0x80
- **					    mask = 00111111 -> 0x3F;
- **
- ** less than 17 bits -> 1110xxxx -> 0xE0
- **					    mask = 00001111 -> 0xF;
- **						10xxxxxx -> 0x80
- **					    mask = 00111111 -> 0x3F;
- **						10xxxxxx -> 0x80
- **					    mask = 00111111 -> 0x3F;
- **
- ** less than 22 bits -> 11110xxx -> 0xF0
- **					    mask = 00000111 -> 0x7;
- **						10xxxxxx -> 0x80
- **					    mask = 00111111 -> 0x3F;
- **						10xxxxxx -> 0x80
- **					    mask = 00111111 -> 0x3F;
- **						10xxxxxx -> 0x80
- **					    mask = 00111111 -> 0x3F;
- */
+** less than 8 bits -> 0xxxxxxx -> 0x0
+**                     mask = 01111111 -> 0x7F;
+**
+** less than 12 bits -> 110xxxxx -> 0xC0
+**					    mask = 00011111 -> 0x1F;
+**						10xxxxxx -> 0x80
+**					    mask = 00111111 -> 0x3F;
+**
+** less than 17 bits -> 1110xxxx -> 0xE0
+**					    mask = 00001111 -> 0xF;
+**						10xxxxxx -> 0x80
+**					    mask = 00111111 -> 0x3F;
+**						10xxxxxx -> 0x80
+**					    mask = 00111111 -> 0x3F;
+**
+** less than 22 bits -> 11110xxx -> 0xF0
+**					    mask = 00000111 -> 0x7;
+**						10xxxxxx -> 0x80
+**					    mask = 00111111 -> 0x3F;
+**						10xxxxxx -> 0x80
+**					    mask = 00111111 -> 0x3F;
+**						10xxxxxx -> 0x80
+**					    mask = 00111111 -> 0x3F;
+*/
 
 inline static short	ft_wcharlen(wchar_t arg)
 {
