@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 13:16:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/13 12:53:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 11:55:43 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ inline void	get_specifier(t_env *e)
 	if (*e->format == 'd' || *e->format == 'i' || *e->format == 'D')
 		chose_cast_nb(e);
 	else if (*e->format == 's')
-		conv_str(e, va_arg(e->arg, char *));
+		e->length == l ? conv_wstr(e, va_arg(e->arg, wchar_t *))
+			: conv_str(e, va_arg(e->arg, char *));
 	else if (*e->format == 'S')
 		conv_wstr(e, va_arg(e->arg, wchar_t *));
 	else if (*e->format == 'p')

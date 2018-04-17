@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_length.c                                       :+:      :+:    :+:   */
+/*   mainwchar.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/16 15:59:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 11:40:05 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/04/17 11:56:16 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/04/17 11:57:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/ft_printf.h"
+#include "incs/ft_printf.h"
+#include "stdio.h"
 
-inline void	get_length(t_env *e)
+int     main(void)
 {
-	e->length = none;
-	while (1)
-	{
-		if (*e->format == 'h')
-			e->length = (e->format[1] == 'h' && ++e->format) ? hh : h;
-		else if (*e->format == 'l')
-			e->length = (e->format[1] == 'l' && ++e->format) ? ll : l;
-		else if (*e->format == 'j')
-			e->length = j;
-		else if (*e->format == 'z')
-			e->length = z;
-		else
-			break ;
-		++e->format;
-	}
+	setlocale(LC_ALL,"");
+
+	printf("%S\n", L"Á±≥");
+	ft_printf("%S\n", L"Á±≥");
+	return (0);
 }

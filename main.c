@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/13 16:00:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 11:59:09 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,22 @@
 int		main(void)
 {
 	setlocale(LC_ALL,"");
-	
-	char *str;
-	wchar_t    s[4];
 
-	s[0] = 'a';
-	s[1] = 250;
+	wchar_t s[4];
+
+	s[0] = 405;
+	s[1] = 'a';
 	s[2] = 'b';
-	s[3] = '\0';
+	s[3] = 123;
 
-	int ret = ft_printf("ft_printf = %-4S\n", s);
-	printf("ret2 = %d\n", ret);
-	ret = printf("printf = %-4S\n", s);
-	printf("ret1 = %d\n", ret);
-	str = NULL;
-	ret = printf("printf = |%C|\n", 0x11ffff);
+	printf("printf str = %S\n", s);
+	ft_printf("ft_printf str = %S\n", s);
+
+	int ret = printf("printf = %8C et coco %C titi %lc\n", 3250, 0x11ffff, 'a');
 	ft_putchar('\n');
 	printf("ret1 = %d\n", ret);
 	ft_putchar('\n');
-	ret = ft_printf("ft_printf = |%C|\n", 0x11ffff);
+	ret = ft_printf("ft_printf = %8C et coco %C titi %lc\n", 3250, 0x11ffff, 'a');
 	ft_putchar('\n');
 	printf("ret2 = %d\n", ret);
 	ft_putchar('\n');
