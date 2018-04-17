@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 12:05:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/13 16:06:14 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 15:18:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	conv_wchar(t_env *e, wchar_t arg);
 
 void	conv_ptr(t_env *e, void *arg);
 
-void	conv_pourcent(t_env *e, void *arg);
+void	conv_pourcent(t_env *e);
 
 void	get_flags(t_env *e);
 

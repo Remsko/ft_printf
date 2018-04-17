@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 11:59:09 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 15:22:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,12 @@ int		main(void)
 {
 	setlocale(LC_ALL,"");
 
-	wchar_t s[4];
+	int ret = 0;
 
-	s[0] = 405;
-	s[1] = 'a';
-	s[2] = 'b';
-	s[3] = 123;
-
-	printf("printf str = %S\n", s);
-	ft_printf("ft_printf str = %S\n", s);
-
-	int ret = printf("printf = %8C et coco %C titi %lc\n", 3250, 0x11ffff, 'a');
-	ft_putchar('\n');
-	printf("ret1 = %d\n", ret);
-	ft_putchar('\n');
-	ret = ft_printf("ft_printf = %8C et coco %C titi %lc\n", 3250, 0x11ffff, 'a');
-	ft_putchar('\n');
-	printf("ret2 = %d\n", ret);
-	ft_putchar('\n');
+	ret = printf("pf = %x %% %S\n", 42, L"لحم خنزير");
+	printf("ret pf = %d\n\n", ret);
+	ret = ft_printf("ft = %x %% %S\n", 42, L"لحم خنزير");
+	printf("ret ft = %d\n\n", ret);
 	return (0);
 }
 /*

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 11:44:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 12:21:23 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 15:04:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,16 @@ inline static short	ft_wcharlen(wchar_t arg)
 {
 	if (arg < 0 || (arg >= 0xD800 && arg < 0xE000))
 		return (-1);
-	else if (arg <= 0x7F)
+	else if (arg < 0x80)
 		return (1);
-	else if (arg <= 0x7FF)
+	else if (arg < 0x800)
 		return (2);
-	return (arg <= 0xFFFF ? 3 : 4);
+	else if (arg < 0x10000)
+		return (3);
+	else if (arg < 0x110000)
+		return (4);
+	else
+		return (-1);
 }
 
 inline static void	get_unicode(wchar_t arg, char c[4], short len)
@@ -78,7 +83,7 @@ inline void			conv_wchar(t_env *e, wchar_t arg)
 	char	*c;
 	short	len;
 
-	c = (char [4]){0, 0, 0, 0};
+	c = (char[4]){0, 0, 0, 0};
 	if ((len = ft_wcharlen(arg)) == -1 || len > MB_CUR_MAX)
 	{
 		e->iserror = TRUE;

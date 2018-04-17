@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 13:26:24 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 12:20:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/17 15:14:18 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ inline void		fill_buff(t_env *e, char *src, int size)
 {
 	if ((e->new_size = PRINTF_SIZE - e->count) < size)
 		return ;
-	ft_memcpy((void *)(&e->buf[e->count]), (const void *)src, (size_t)size);
+	else
+		ft_memcpy((void *)(&e->buf[e->count]), (const void *)src, (size_t)size);
 	e->count += size;
 }
