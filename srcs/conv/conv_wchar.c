@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 11:44:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 16:51:46 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/27 16:08:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,48 +38,7 @@
 **					    mask = 00111111 -> 0x3F;
 */
 
-inline static short	ft_wcharlen(wchar_t arg)
-{
-	if (arg < 0 || (arg >= 0xD800 && arg < 0xE000))
-		return (-1);
-	else if (arg < 0x80)
-		return (1);
-	else if (arg < 0x800)
-		return (2);
-	else if (arg < 0x10000)
-		return (3);
-	else if (arg < 0x110000)
-		return (4);
-	else
-		return (-1);
-}
-
-inline static void	get_unicode(wchar_t arg, char c[4], short len)
-{
-	if (len <= MB_CUR_MAX)
-	{
-		if (len == 1)
-			c[0] = arg;
-		else if (len == 2)
-		{
-			c[0] = 0xC0 + (arg >> 6 & 0x1F);
-			c[1] = 0x80 + (arg & 0x3F);
-		}
-		else if (len == 3)
-		{
-			c[0] = 0xE0 + (arg >> 12 & 0xF);
-			c[1] = 0x80 + (arg >> 6 & 0x3F);
-			c[2] = 0x80 + (arg & 0x3F);
-		}
-		else if (len == 4)
-		{
-			c[0] = 0xF0 + (arg >> 18 & 0x7);
-			c[1] = 0x80 + (arg >> 12 & 0x3F);
-			c[2] = 0x80 + (arg >> 6 & 0x3F);
-			c[3] = 0x80 + (arg & 0x3F);
-		}
-	}
-}
+#include <stdio.h>
 
 inline void			conv_wchar(t_env *e, wchar_t arg)
 {
@@ -89,6 +48,8 @@ inline void			conv_wchar(t_env *e, wchar_t arg)
 	c = (char[4]){0, 0, 0, 0};
 	if ((len = ft_wcharlen(arg)) == -1 || len > MB_CUR_MAX)
 	{
+		if (e->iserror == FALSE)
+			write(1, (const void *)e->buf, (size_t)e->count);
 		e->iserror = TRUE;
 		return ;
 	}

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 12:05:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 15:18:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/27 16:47:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void	get_precision(t_env *e);
 void	get_length(t_env *e);
 
 void	get_specifier(t_env *e);
+
+void	get_unicode(wchar_t arg, char c[4], short len);
+
+short	ft_wcharlen(wchar_t arg);
+
+int		ft_wstrlen(wchar_t *arg);
 
 void	fill_buff(t_env *e, char *src, int size);
 

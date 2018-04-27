@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 16:13:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/17 17:09:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/04/27 17:59:02 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,22 @@ int		main(void)
 {
 	setlocale(LC_ALL,"");
 
-	int ret = 0;
+	wchar_t s[4];
 
-	ret = printf("pf = %-100S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
-	printf("ret pf = %d\n\n", ret);
-	ret = ft_printf("ft = %-100S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
-	printf("ret ft = %d\n\n", ret);
+	setlocale(LC_ALL, "");
+	s[0] = 0x53;
+	s[1] = 0x3abc;
+	s[2] = 0x81000;
+	s[3] = '\0';
+
+	int ret = printf("pf = %-15.5S et coco %S", s, s);
+	printf("\nret pf = %d\n", ret);
+	ret = printf("pf = %-15.8S et coco %S", s, s);
+	printf("\nret pf = %d\n", ret);
+	ret = ft_printf("ft = %-15.5S et coco %S", s, s);
+	printf("\nret ft = %d\n", ret);
+	ret = ft_printf("ft = %-15.8S et coco %S", s, s);
+	printf("\nret ft = %d\n", ret);
 	return (0);
 }
 /*

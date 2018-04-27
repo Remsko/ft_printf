@@ -26,6 +26,7 @@ SRC_NAME = libft/ft_intmax.c \
 		   srcs/conv/conv_wchar.c \
 		   srcs/conv/conv_ptr.c \
 		   srcs/conv/conv_pourcent.c \
+		   srcs/conv/unicode.c \
 		   srcs/buffer/fill_buff.c \
 		   srcs/buffer/add_char.c \
 		   srcs/cast/chose_cast_nb.c \
