@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 13:39:02 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/05/02 16:30:29 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/02 18:04:55 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
 
-inline int ft_wstrnlen(wchar_t *arg, int max)
+inline int		ft_wstrnlen(wchar_t *arg, int max)
 {
 	int len;
 	int add;
@@ -41,7 +41,7 @@ inline int ft_wstrnlen(wchar_t *arg, int max)
 	return (len);
 }
 
-inline int ft_wstrlen(wchar_t *arg)
+inline int		ft_wstrlen(wchar_t *arg)
 {
 	int len;
 
@@ -65,7 +65,7 @@ inline int ft_wstrlen(wchar_t *arg)
 	return (len);
 }
 
-inline short ft_wcharlen(wchar_t arg)
+inline short	ft_wcharlen(wchar_t arg)
 {
 	if (arg < 0 || (arg >= 0xD800 && arg < 0xE000))
 		return (-1);
@@ -81,7 +81,7 @@ inline short ft_wcharlen(wchar_t arg)
 		return (-1);
 }
 
-inline void  get_unicode(wchar_t arg, char c[4], short len)
+inline void		get_unicode(wchar_t arg, char c[4], short len)
 {
 	if (len <= MB_CUR_MAX)
 	{
