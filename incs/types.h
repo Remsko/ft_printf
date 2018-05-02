@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:34:53 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/13 14:41:12 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/02 13:50:22 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct	s_env
 	int			count;
 	int			new_size;
 	t_bool		iserror;
+	int			uselesserror;
 }				t_env;
 
 #endif

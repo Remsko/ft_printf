@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 11:44:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/27 16:08:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/02 13:52:02 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ inline void			conv_wchar(t_env *e, wchar_t arg)
 	if ((len = ft_wcharlen(arg)) == -1 || len > MB_CUR_MAX)
 	{
 		if (e->iserror == FALSE)
-			write(1, (const void *)e->buf, (size_t)e->count);
+			write(1, (const void *)e->buf, (size_t)(e->count - e->uselesserror));
 		e->iserror = TRUE;
 		return ;
 	}

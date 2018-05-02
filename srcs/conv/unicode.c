@@ -6,11 +6,38 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 13:39:02 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/04/27 16:47:52 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/02 13:38:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ft_printf.h"
+
+inline int ft_wstrnlen(wchar_t *arg, int max)
+{
+	int len;
+	int add;
+
+	len = 0;
+	while (*arg)
+	{
+		if (*arg < 0 || (*arg >= 0xD800 && *arg < 0xE000))
+			add = 0;
+		else if (*arg < 0x80)
+			add = 1;
+		else if (*arg < 0x800)
+			add = 2;
+		else if (*arg < 0x10000)
+			add = 3;
+		else if (*arg < 0x110000)
+			add = 4;
+		if (len + add <= max)
+			len += add;
+		else
+			return (len);
+		arg++;
+	}
+	return (len);
+}
 
 inline int ft_wstrlen(wchar_t *arg)
 {
