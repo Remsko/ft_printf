@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 12:05:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/05/02 13:38:34 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/02 18:00:53 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ void	add_nchar(t_env *e, int n, char c);
 void	chose_cast_nb(t_env *e);
 
 void	chose_cast_unsigned_nb(t_env *e, short base);
+
+t_bool	error_wstr(t_env *e, short *wcharlen, wchar_t arg);
 
 #endif
