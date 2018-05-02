@@ -50,11 +50,9 @@ $(NAME): $(OBJ_NAME)
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	@make clean -C libft
 	@$(RM) $(OBJ_NAME)
 
 fclean: clean
-	@make fclean -C libft
 	@$(RM) $(NAME)
 
 re: fclean all

@@ -1,4 +1,0 @@
-ÊM-ÊM-
-printf ret = 4
-
-ft_printf ret = 4
