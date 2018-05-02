@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 13:39:02 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/05/02 13:38:04 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/02 16:30:29 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ inline int ft_wstrnlen(wchar_t *arg, int max)
 	len = 0;
 	while (*arg)
 	{
-		if (*arg < 0 || (*arg >= 0xD800 && *arg < 0xE000))
+		if (MB_CUR_MAX == 1 && *arg >= 127 && *arg <= 255)
+			add = 1;
+		else if (*arg < 0 || (*arg >= 0xD800 && *arg < 0xE000))
 			add = 0;
 		else if (*arg < 0x80)
 			add = 1;
@@ -46,7 +48,9 @@ inline int ft_wstrlen(wchar_t *arg)
 	len = 0;
 	while (*arg)
 	{
-		if (*arg < 0 || (*arg >= 0xD800 && *arg < 0xE000))
+		if (MB_CUR_MAX == 1 && *arg >= 127 && *arg <= 255)
+			len += 1;
+		else if (*arg < 0 || (*arg >= 0xD800 && *arg < 0xE000))
 			len += 0;
 		else if (*arg < 0x80)
 			len += 1;
