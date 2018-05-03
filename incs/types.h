@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:34:53 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/05/03 15:25:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/03 17:56:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ typedef struct	s_env
 	t_len_enum	length;
 	int			width;
 	int			precision;
-	int			index;
 	int			count;
-	int			size_tmp;
-	int			uselesserror;
+	int			new_size;
 	t_bool		iserror;
+	int			uselesserror;
 }				t_env;
 
 #endif

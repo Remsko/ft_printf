@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 11:44:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/05/03 10:31:15 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/03 17:53:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ inline void			conv_wchar(t_env *e, wchar_t arg)
 		else
 		{
 			if (e->iserror == FALSE)
-				write(1, e->buf, (e->index - e->uselesserror));
+				write(1, e->buf, (e->count - e->uselesserror));
 			e->iserror = TRUE;
 		}
 		return ;
