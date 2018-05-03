@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:27:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/05/03 17:51:04 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/03 18:17:02 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define NB_LENGTH_MAX 19
 # define U_NB_LENGTH_MAX 20
-# define PRINTF_SIZE 128
+# define PRINTF_SIZE 126
 
 # include "../libft/libft.h"
 # include <stdarg.h>
