@@ -6,15 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:38:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/05/03 17:59:02 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/05/03 18:24:42 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ft_printf.h"
 
-
-#include "stdio.h"
-int						ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	t_env	e;
 
